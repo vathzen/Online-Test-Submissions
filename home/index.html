@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <title>Online Test Submission</title>
+  </head>
+  <style media="screen">
+    .container{
+      margin-top: 50px;
+    }
+    footer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      bottom: 0;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 m-auto">
+          <div class="card text-center">
+            <div class="card-header">
+              <h1 class="display-3">Test Submission</h1>
+              <small class="text-muted">Srivathsan</small>
+            </div>
+            <div class="card-body">
+              <h3 class="display-4">Permutation and Combinations - I</h3>
+              <p class="lead">Parents are to make sure that your ward completes the test in the stipulated time and no unscrupulous means were used.</p>
+              <p class="card-text">Click below to download the question paper:</p>
+              <a href="" class="btn btn-primary">Download PnC-I</a>
+              <p class="lead">Please upload the answer script of your ward here with the name mentioned on the top right of the first page.</p>
+              {% if uploaded %}
+                <p class="lead">Uploaded!</p>
+              {% else %}
+                <form method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form }}
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              {% endif %}
+            </div>
+            <div class="card-footer text-muted">
+              19th January 2020
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span class="text-muted">&copy; Srivathsan 2020</span>
+    </footer>
+  </body>
+</html>
