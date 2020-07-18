@@ -28,37 +28,37 @@
               <h4>Srivathsan</small>
             </div>
             <div class="card-body">
-              <h3 class="display-4">Matrices Test</h3>
+              <h3 class="display-4">Differentiation Assignment</h3>
               <p class="lead">Please upload the assignment answers of your ward here with the name mentioned on the top right of the first page.</p>
-              <a href="https://drive.google.com/file/d/16nuniLynnfBAExZ71-NjpPNPcPIQaECG/view?usp=sharing" class="btn btn-danger" id="download">Download the Paper</a>
+              <!-- <a href="https://drive.google.com/file/d/16nuniLynnfBAExZ71-NjpPNPcPIQaECG/view?usp=sharing" class="btn btn-danger" id="download">Download the Paper</a> -->
               {% if uploaded %}
                 <p class="lead">Uploaded!</p>
               {% else %}
                 <form method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
-                  {{ form.non_field_errors }}
+                  {{ submitForm.non_field_errors }}
                   <div class="fieldWrapper">
-                    {{ form.subject.errors }}
-                    <label for="{{ form.name.id_for_label }}">Name : </label>
-                    {{ form.name }}
+                    {{ submitForm.subject.errors }}
+                    <label for="{{ submitForm.name.id_for_label }}">Name : </label>
+                    {{ submitForm.name }}
                   </div>
                   <div class="fieldWrapper">
-                    {{ form.uploadedFile.errors }}
-                    <label for="{{ form.uploadedFile.id_for_label }}">File : </label>
-                    {{ form.uploadedFile }}
+                    {{ submitForm.uploadedFile.errors }}
+                    <label for="{{ submitForm.uploadedFile.id_for_label }}">File : </label>
+                    {{ submitForm.uploadedFile }}
                   </div>
                   <br>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" name="answerSubmit">Submit</button>
                 </form>
               {% endif %}
             </div>
             <div class="card-footer text-muted">
-              Last Updated - 31st May 2020
+              Last Updated - 17th July 2020
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-12 m-auto">
           <div class="card text-center">
             <div class="card-header">
@@ -66,11 +66,15 @@
             </div>
             <div class="card-body">
               Enter your password to view your results.<br>
-
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ markForm }}
+                <button type="submit" class="btn btn-secondary" name="markSubmit">Submit</button>
+              </form>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <footer>
       <span class="text-muted">&copy; Srivathsan 2020</span>

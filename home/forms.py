@@ -8,4 +8,4 @@ class UploadFileForm(forms.Form):
     uploadedFile = forms.FileField()
 
 class TestResults(forms.Form):
-    passwd = forms.PasswordInput()
+    passwd = forms.CharField(widget = forms.PasswordInput() , label='Password')
